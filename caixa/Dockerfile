@@ -3,4 +3,4 @@ RUN pip install pika
 RUN mkdir /code
 COPY . /code
 WORKDIR /code
-CMD ["python","-u","consumer.py"]
+CMD ["python", "-u", "caixa.py"]

@@ -13,8 +13,8 @@ services:
         timeout: 5s
         retries: 5
 
-    consumer:
-      build: ./consumer 
+    caixa:
+      build: ./caixa 
       depends_on:
         rabbitmq:
           condition: service_healthy
