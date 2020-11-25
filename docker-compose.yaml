@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+    rabbitmq:
+      build: ./rabbit
+      restart: unless-stopped
+      ports:
+          - 5672:5672
+          - 15672:15672
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 5s
+        timeout: 5s
+        retries: 5
+
+    consumer:
+      build: ./consumer 
+      depends_on:
+        rabbitmq:
+          condition: service_healthy
