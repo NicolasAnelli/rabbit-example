@@ -13,8 +13,14 @@ services:
         timeout: 5s
         retries: 5
 
-    caixa:
-      build: ./caixa 
+    cozinheiro:
+      build: ./cozinheiro 
+      depends_on:
+        rabbitmq:
+          condition: service_healthy
+
+    garcom:
+      build: ./garcom 
       depends_on:
         rabbitmq:
           condition: service_healthy

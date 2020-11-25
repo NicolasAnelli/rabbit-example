@@ -1,5 +1,7 @@
-docker-compose up -d --build
+docker-compose up --build
 
+docker-compose up -d --build
 docker-compose logs -f
 
-docker-compose scale consumer=3
+docker-compose scale cozinheiro=5 garcom=2
+docker-compose scale cozinheiro=2 garcom=5
